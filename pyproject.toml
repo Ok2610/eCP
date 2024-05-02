@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eCP"
+authors = [
+    { name="Omar Shahbaz Khan", email="osk@oskhan.com" },
+    { name="Gylfi Þór Guðmundsson", email="gylfig@ru.is" },
+]
+dynamic=["version", "readme"]
+description = ""
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {attr = "exquisitor.__version__"}
+readme = {file = "README.md", content-type = "text/markdown" }
