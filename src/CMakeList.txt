@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.27)
 
 set(BINARY ${CMAKE_PROJECT_NAME})
 
-file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true eCP/*.h eCP/*.hpp eCP/*.cpp) 
+file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true eCP/containers/*.h eCP/containers/*.hpp eCP/descriptors/*.h eCP/descriptors/*.hpp eCP/*.h eCP/*.hpp eCP/*.cpp) 
 
 set(SOURCES ${SOURCES})
 

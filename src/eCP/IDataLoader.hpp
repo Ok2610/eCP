@@ -3,18 +3,18 @@
 #include <iostream>
 #include "H5Cpp.h"
 
-namespace eCP {
+namespace ecp {
 
     using std::vector;
     using std::string;
 
-    class I_DataLoader {
+    class IDataLoader {
         virtual vector<vector<float>> load_data(const string& filename) = 0;
         virtual vector<vector<float>> load_data_batch(const string& filename, int start, int end) = 0;
     }; // class DataLoader
 
 
-    class HDF5Loader : I_DataLoader {
+    class HDF5Loader : IDataLoader {
     public:
         HDF5Loader(string& ds_name) {
             _ds_name = ds_name;
@@ -44,7 +44,10 @@ namespace eCP {
             for (size_t i = 0; i < dims_out[0]; ++i) {
                 data.emplace_back(buffer.begin() + i * dims_out[1], buffer.begin() + (i + 1) * dims_out[1]);
             }
-
+            
+            dataspace.close();
+            dataset.close();
+            file.close();
             return data;
         } // HDF5Loader::load_data
 
@@ -81,6 +84,9 @@ namespace eCP {
                 data.emplace_back(buffer.begin() + i * dims_out[1], buffer.begin() + (i + 1) * dims_out[1]);
             }
 
+            dataspace.close();
+            dataset.close();
+            file.close();
             return data;
         } // HDF5Loader::load_data_batch
 

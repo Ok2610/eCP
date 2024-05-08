@@ -1,5 +1,5 @@
 
-namespace eCP {
+namespace ecp {
     class QueryOptimizationPolicies {
         QueryOptimizationPolicies();
 

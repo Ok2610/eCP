@@ -1,4 +1,4 @@
-using namespace eCP;
+using namespace ecp;
 
 QueryOptimizationPolicies::QueryOptimizationPolicies() {
 
