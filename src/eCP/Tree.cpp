@@ -37,7 +37,7 @@ void Tree<T>::build_dynamic_tree() {
             thrs = _leafs.size();
         }
         while (indx < thrs) {
-            // search with limit i 
+            // search with limit i-1 
             vector<DynamicInternalNode> ret = limited_dynamic_root_search(_leafs[indx], i-1, _root);
             if (ret.empty()) continue;
             /// TODO: ?? "add top treeA nearest"
@@ -76,6 +76,7 @@ vector<DynamicInternalNode> Tree<T>::depth_limited_search(T& point, int limit, D
         qdesc.set_query_point(p);
         vector<DynamicInternalNode>::iterator it;
         int at = 0;
+        /// TODO: Should this start from current level size?
         for (int i = 0; i < current_node.children.size(); ++i) {
             qdesc.add(_leafs[i].leader_id, at++);
         }
@@ -96,9 +97,9 @@ vector<DynamicInternalNode> Tree<T>::depth_limited_search(T& point, int limit, D
     return ret;
 }
 
-/// TODO: Add Priority Queue Logic here!
 template <typename T, typename U>
 vector<T> Tree<T,U>::search_tree(T p, int b) {
+    /// TODO: Add Priority Queue Logic here!
     // the a return value
     auto ret = vector<T>();
     // sanity check, if the root is null, the tree is not setup properly.
