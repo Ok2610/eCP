@@ -1,3 +1,6 @@
+#ifndef FLOAT_VEC_DESCRIPTOR_HPP
+#define FLOAT_VEC_DESCRIPTOR_HPP
+
 #include "../IDescriptor.h"
 
 namespace ecp {
@@ -15,7 +18,9 @@ namespace ecp {
         ~FloatVecDescriptor() {}
 
         vector<float> get_descriptor() override {
-            return _descriptor;
+            return descriptor;
         }
     }
 }
+
+#endif // FLOAT_VEC_DESCRIPTOR_HPP

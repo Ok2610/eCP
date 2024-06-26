@@ -1,3 +1,6 @@
+#ifndef SIFT_DESCRIPTOR_HPP
+#define SIFT_DESCRIPTOR_HPP
+
 #include "../IDescriptor.h"
 
 namespace ecp {
@@ -8,12 +11,12 @@ namespace ecp {
             descriptor = desc;
         }
 
-        ~SiftDescriptor() {
-            delete[] _descriptor;
-        }
+        ~SiftDescriptor() {}
 
         vector<int> get_descriptor() override {
-            return _descriptor;
+            return descriptor;
         }
     }
 }
+
+#endif // SIFT_DESCRIPTOR_HPP
